@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --trivago-blue: #007fad;
+    --trivago-blue-dark: #00658a;
+    --trivago-orange: #ea6b00;
+    --trivago-red: #c0192d;
+    --trivago-bg: #f5f6f8;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f5f6f8;
+    color: #1a1a1a;
+    overflow-x: hidden;
+  }
+
+  .dark body {
+    background-color: #0a1128;
+    color: #f1f5f9;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Trivago brand colors */
+.bg-trivago-blue {
+  background-color: #007fad;
+}
+.bg-trivago-blue:hover {
+  background-color: #00658a;
+}
+.text-trivago-blue {
+  color: #007fad;
+}
+.border-trivago-blue {
+  border-color: #007fad;
+}
+.bg-trivago-orange {
+  background-color: #ea6b00;
+}
+.text-trivago-orange {
+  color: #ea6b00;
+}
+.bg-trivago-red {
+  background-color: #c0192d;
+}
+.text-trivago-red {
+  color: #c0192d;
+}
+
+/* Trivago card shadow */
+.trivago-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.trivago-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Custom animations and styling */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes pulse-ring-red {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.radar-sweep {
+  background: conic-gradient(from 0deg at 50% 50%, rgba(0, 127, 173, 0.3) 0deg, rgba(0, 127, 173, 0) 60deg, transparent 360deg);
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Leaflet container fixes */
+.leaflet-container {
+  font-family: var(--font-sans) !important;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* Custom marker styles */
+.custom-map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.custom-map-pin:hover {
+  transform: scale(1.18);
+  z-index: 9999 !important;
+}
+
+/* Heatmap simulation circle */
+.heat-gradient {
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.45) 0%, rgba(245, 158, 11, 0.3) 45%, rgba(16, 185, 129, 0.15) 75%, transparent 100%);
+}
